@@ -3,14 +3,19 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
+  background-color: rgb(36, 36, 68);
+  width: 100vw;
 }
 
 li {
   float: left;
 }
 
-li span {
+li i:hover:not(.active) {
+  background-color: rgb(46, 46, 95);
+}
+
+li i {
   display: block;
   color: white;
   text-align: center;
@@ -18,15 +23,11 @@ li span {
   text-decoration: none;
 }
 
-li a:hover {
-  background-color: #111;
+.topnav-centered  {
+  float: none;
+  position: absolute;
+  top: 4vh;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.navbar {
-  overflow: hidden;
-  background-color: #24272e;;
-  position: fixed; 
-  z-index: 9999;
-  top: 0; 
-  width: 100%; 
-}
