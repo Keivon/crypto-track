@@ -47,3 +47,23 @@
     .sidenav {padding-top: 15px;}
     .sidenav i {font-size: 18px;}
   }
+
+  /* Style the navigation menu inside the left column */
+#myMenu {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#myMenu li i {
+  padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+#myMenu li i:hover {
+  background-color: #eee;
+}
