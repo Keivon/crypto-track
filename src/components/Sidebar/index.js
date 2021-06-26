@@ -23,24 +23,21 @@ function myFunction() {
   }
 }
 
-function Sidebar() {
+function Sidebar(props) {
+  console.log(props.coins[0]);
   return (
     <div id="mySidenav" className="sidenav">
-  <i className="closebtn" onClick={() => {closeNav()}}>&times;</i>
-  <input type="text" id="mySearch" onKeyUp={() => {myFunction()}} 
-  placeholder="Search.." title="Type in a cion"></input>
- <div id="myMenu">
-  <li><i>HTML</i></li>
-  <li><i >CSS</i></li>
-  <li><i >JavaScript</i></li>
-  <li><i >PHP</i></li>
-  <li><i >Python</i></li>
-  <li><i >jQuery</i></li>
-  <li><i >SQL</i></li>
-  <li><i >Bootstrap</i></li>
-  <li><i >Node.js</i></li>
-</div>
-</div>
+      <i className="closebtn" onClick={() => { closeNav() }}>&times;</i>
+      <input type="text" id="mySearch" onKeyUp={() => { myFunction() }}
+        placeholder="Search.." title="Type in a cion"></input>
+      <div id="myMenu">
+        {props.coins.map(coin => (
+
+          <li key={coin.market_cap_rank}><i>{coin.id}</i></li>
+        ))}
+
+      </div>
+    </div>
   );
 }
 
