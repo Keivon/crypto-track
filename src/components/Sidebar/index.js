@@ -1,35 +1,19 @@
-import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { modalOpen } from '../../features/modal/modalSlice';
 import './sidebar.css';
-import '../Modal/modal.css'
-import Modal from '../Modal';
+
 
 
 
 function Sidebar(props) {
 
-  const [modal, setModal] = useState("");
 
+  const dispatch = useDispatch();
   let closeNav = () => {
     document.getElementById("mySidenav").style.width = "0";
   }
 
-  let openModal = (rank) => {
-    
-      let coin = props.coins.find(element => element.market_cap_rank === rank);
-      let modal = document.getElementById("myModal");
-      console.log(coin);
-      setModal(
-      <Modal
-        img={coin.image}
-        id={coin.id}
-        currentPrice={coin.current_price}
-        key={coin.market_cap_rank}
-      />);
-      modal.style.display = "block";
-    
-  }
-
-
+ 
 
   let myFunction = ()=> {
     // Declare variables
@@ -60,11 +44,15 @@ function Sidebar(props) {
         {props.coins.map(coin => (
           
             <li key={coin.market_cap_rank}>
-              <button onClick={() => { openModal(coin.market_cap_rank) }} >
+              <button onClick={() =>dispatch(modalOpen({
+                coinName:coin.id,
+                coinImage: coin.image,
+                currentPrice: coin.current_price
+              }))} >
                 {coin.id}</button></li>
          
         ))}
-{modal}
+
       </div>
     </div>
 

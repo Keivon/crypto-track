@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { modalClose } from '../../features/modal/modalSlice';
 import './modal.css';
 
 
@@ -7,43 +9,36 @@ import './modal.css';
 
 export default function Modal(props) {
 
-
     const [value, setValue] = useState(0);
     const [name, setName] = useState("");
-    const [coinImgae, setCoinImgae] = useState("");
+    const [coinImage, setCoinImage] = useState("");
     const [currentPrice, setCurrentPrice] = useState("");
+  
 
-  // Get the modal
-  let modal = document.getElementById("myModal");
+    const dispatch = useDispatch();
 
-  // open the modal
-  let openModal = () => {
-      modal.style.display = "block";
-  }
+	const handleCloseModal = () => {
+		dispatch(modalClose());
+	};
 
-  // When the user clicks on <span> (x), close the modal
-  let closeModal = function () {
-      modal.style.display = "none";
-  }
 
 
     useEffect(() => {
         setName(props.id);
-        setCoinImgae(props.img);
+        setCoinImage(props.img);
         setCurrentPrice(props.currentPrice);
-
     }, [props.id, props.img, props.currentPrice]);
 
-console.log(props.id)
+
     return (
         <>
-            <button id="myBtn" onClick={() => { openModal() }} >{name}</button>
-            <div id="myModal" className="modal">
+            
+            <div id="myModal" className="modal"  >
                 <div className="modal-content">
-                    <span className="close" onClick={() => { closeModal() }} >&times;</span>
+                    <span className="close" onClick={ handleCloseModal } >&times;</span>
                     <div className="modal-card">
                         <div className="modal-card center">
-                            <img src={coinImgae}
+                            <img src={coinImage}
                                 alt=""
                                 width='100px'
                                 height='100px' />
@@ -58,6 +53,7 @@ console.log(props.id)
                                 name="amount"
                                 style={{ marginRight: "10px" }}
                                 type="number"
+                                value={value}
                                 size="1000000"></input>
                             <p style={{ display: "inline-block" }} > @ ${currentPrice} usd</p>
                         </div>
