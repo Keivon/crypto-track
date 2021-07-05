@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
-import { useSelector} from 'react-redux';
+import { useSelector, useDispatch} from 'react-redux';
 import Sidebar from './components/Sidebar';
 import Modal from './components/Modal';
+import { getCoinsAsync } from './features/coins/coinsSlice';
 import './App.css';
 
 
@@ -10,24 +11,16 @@ import './App.css';
 
 
 function App() {
-  const modal = useSelector((state) => state.modal);
 
-  const [coins, setCoins] = useState([]);
+  const dispatch = useDispatch();
+  const modal = useSelector((state) => state.modal);
+  const coins = useSelector((state) => state.coin);
+
+ 
 
   useEffect(() => {
-
-    fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=250&page=1&sparkline=false`, {
-      method: 'GET',
-      headers: { 'Content-Type': 'application/json' }
-    })
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (myJson) {
-        setCoins(myJson);
-      });
-
-  }, []);
+		dispatch(getCoinsAsync());
+	}, [dispatch]);
 
   return (
     <div className="App">
