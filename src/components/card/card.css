@@ -1,0 +1,66 @@
+
+
+.card {
+    padding-top: 10px;
+    height: 230px;
+    text-align: center;
+    background-color: rgb(49, 49, 121);
+    border-radius: 10px;
+}
+
+.card img {
+    max-width: 4vw;
+    height: 8vh;
+}
+
+.card p {
+    margin-block-start: 0.2em;
+}
+
+.card h1 {
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+.closebtn {
+    font-size: 1px;
+    
+  }
+  .closeb {
+      height: 13px;
+  }
+
+.closeb:hover i {
+    float:right;
+    top: 0;
+    cursor: pointer;
+    font-size: 36px;
+}
+
+
+.cardtext {
+    color: white;
+    cursor: pointer;
+    width: 36px;
+    margin: auto;
+}
+
+
+@media only screen and (max-width: 666px) {
+    /* For mobile phones: */
+    .card{
+        margin-left: 9vw;
+        max-width: 80vw;
+    }
+
+    .card img {
+        max-width: 10vw;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    /* For mobile phones: */
+    .card{
+        max-width: 80vw;
+    }
+}

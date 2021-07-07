@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { modalClose } from '../../features/modal/modalSlice';
+import { addCard, cardsAmountValue } from '../../features/card/cardSlice';
 import './modal.css';
 
 
@@ -10,6 +11,7 @@ import './modal.css';
 export default function Modal(props) {
 
     const [value, setValue] = useState(0);
+    const [currentvalue, setCurrentValue] = useState(0);
     const [name, setName] = useState("");
     const [coinImage, setCoinImage] = useState("");
     const [currentPrice, setCurrentPrice] = useState("");
@@ -18,6 +20,16 @@ export default function Modal(props) {
     const dispatch = useDispatch();
 
 	const handleCloseModal = () => {
+		dispatch(modalClose());
+	};
+
+    const handleAdd = () => {
+        dispatch(addCard(
+            {amount:value, 
+            coinName:name,
+            coinImage:coinImage,
+            currentPrice:currentPrice}));
+            dispatch(cardsAmountValue());
 		dispatch(modalClose());
 	};
 
@@ -55,10 +67,21 @@ export default function Modal(props) {
                                 type="number"
                                 value={value}
                                 size="1000000"></input>
-                            <p style={{ display: "inline-block" }} > @ ${currentPrice} usd</p>
+                                <label htmlFor="@">@:</label>
+                                <input
+                                id="@"
+                                onChange = {(e) =>{ setCurrentValue(e.target.value) }}
+                                name="@"
+                                style={{ marginRight: "10px" }}
+                                type="number"
+                                placeholder={currentvalue}
+                                value={currentPrice}
+                                size="1000000"></input>
+                            <p style={{ display: "inline-block" }} > current price ${currentPrice} </p>
                         </div>
                         <button
                             style={{ margin: "auto" }}
+                            onClick={ handleAdd }
                         >Add</button>
                     </div>
                 </div>

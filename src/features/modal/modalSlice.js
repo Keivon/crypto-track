@@ -5,7 +5,7 @@ export const modalSlice = createSlice({
   name: 'modal',
   initialState: {
     display: 0,
-    value: 0,
+    amount: 0,
     coinName: "",
     coinImage: "",
     currentPrice: 0,
@@ -14,7 +14,7 @@ export const modalSlice = createSlice({
 
     modalOpen: (state, action) => {
         state.display = 1;
-        state.value = 0;
+        state.amount = 0;
         state.coinName = action.payload.coinName;
         state.coinImage = action.payload.coinImage;
         state.currentPrice = action.payload.currentPrice;
@@ -22,7 +22,7 @@ export const modalSlice = createSlice({
     },
     modalClose: (state) => {
       state.display = 0;
-      state.value = 0;
+      state.amount = 0;
       state.coinName = "";
       state.coinImage = "";
       state.currentPrice = "";

@@ -28,6 +28,6 @@ export const coinSlice = createSlice({
 	},
 });
 
-export const { firstFive } = coinSlice.actions;
+
 
 export default coinSlice.reducer;

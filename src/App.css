@@ -1,7 +1,7 @@
 .App {
   height: 93vh;
   background-color: rgb(37, 37, 71);
-  width: 100vw;
+  
 }
 
 .contaner {
@@ -11,9 +11,9 @@
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
 }
 
-.box-pink {
-    height: 230px;
-    margin: 5px;
-    background-color: rgb(44, 44, 90);
-}
 
+.text {
+  color: white;
+  margin: 0;
+  padding: 8px;
+}
