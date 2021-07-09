@@ -17,8 +17,6 @@ const userCreate =  (data) => {
   }
     catch (err) { return{ statusCode: 400, body: JSON.stringify('Error: ' + err)}};
     
-    
-
 };
 
 
