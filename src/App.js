@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import Sidebar from './components/Sidebar';
-import Modal from './components/Modal';
+import Sidebar from './components/sidebar';
+import Modal from './components/modal';
 import Card from './components/card';
 import { getCoinsAsync } from './features/coins/coinsSlice';
 import './App.css';
