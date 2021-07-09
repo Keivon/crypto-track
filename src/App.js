@@ -47,7 +47,13 @@ function App() {
       <p className='text'>Current gains / losses = ${value.toFixed(2)}</p>
       <div className="contaner">
 
-        {cards ? cardsfs.map(card => (
+        {cards ?
+         <div className="landing"> 
+
+           <p> &#8598; Add a card from the menu</p> 
+
+           </div> :
+         cardsfs.map(card => (
           <Card 
           id={card.id}
           name = {card.coinName}
@@ -56,7 +62,7 @@ function App() {
           currentPrice={card.currentPrice}
            key={card.id}
            />
-        )):<div> <p>Add a card</p> </div>  }
+        ))   }
 
       </div>
 

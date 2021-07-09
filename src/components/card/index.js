@@ -10,6 +10,7 @@ import './card.css';
 export default function Card(props) {
 
     const [amount, setAmount] = useState(0);
+    const [total, setTotal] = useState(0);
     const [id, setId] = useState(0);
     const [display, setDisplay] = useState(0);
     const [name, setName] = useState("");
@@ -28,7 +29,8 @@ export default function Card(props) {
         setId(props.id);
         setName(props.name);
         setCoinImage(props.img);
-        setCurrentPrice(props.currentPrice.toFixed(5));
+        setCurrentPrice(props.currentPrice);
+        setTotal(props.amount * props.currentPrice);
        
     }, [props.id, props.img, props.currentPrice, props.value, props.amount, props.name]);
     
@@ -43,7 +45,7 @@ export default function Card(props) {
         <img src={coinImage} alt={name} />
        <p>{name}</p>
         <h1>{amount}</h1>
-        <p>${(amount * currentPrice).toFixed(3)} </p>
+        <p>${ (total > 1) ? total : total.toFixed(6) } </p>
         {display?
         <p >@ {currentPrice}</p> :<> </>
         }
