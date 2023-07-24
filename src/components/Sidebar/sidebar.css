@@ -36,6 +36,16 @@
     font-size: 36px;
     margin-left: 50px;
   }
+
+  .sidebar-button {
+    background-color: transparent;
+    font: 1.2em sans-serif;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 4px;
+  }
   
   /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
   #main {

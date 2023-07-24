@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import Sidebar from './components/sidebar';
-import Modal from './components/modal';
+import Sidebar from './components/Sidebar';
+import Modal from './components/Modal';
 import Card from './components/card';
 import { getCoinsAsync } from './features/coins/coinsSlice';
 import './App.css';
@@ -32,7 +32,7 @@ function App() {
     setCardsfs(cards.cards)
   }, [cards.value, cards.cards]);
 
-
+console.log(cardsfs.length)
 
   return (
     <div className="App">
@@ -47,7 +47,7 @@ function App() {
       <p className='text'>Current gains / losses = ${value.toFixed(2)}</p>
       <div className="contaner">
 
-        {cards ?
+        {value === 0 ?
          <div className="landing"> 
 
            <p> &#8598; Add a card from the menu</p> 

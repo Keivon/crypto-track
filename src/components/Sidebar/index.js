@@ -43,12 +43,12 @@ function Sidebar(props) {
       <div id="myMenu">
         {props.coins.map(coin => (
           
-            <li key={coin.market_cap_rank}>
+            <li key={coin.market_cap_rank} >
               <button onClick={() =>dispatch(modalOpen({
                 coinName:coin.id,
                 coinImage: coin.image,
                 currentPrice: coin.current_price
-              }))} >
+              }))} className='sidebar-button'>
                 {coin.id}</button></li>
          
         ))}

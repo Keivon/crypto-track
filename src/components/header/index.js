@@ -10,7 +10,7 @@ export default function Header() {
         <ul>
         <li><i onClick={() => {openNav()}} >=</i></li>
         <li className="topnav-centered"><i >Crypto Tracker</i></li>
-        <li style={{float:"right"}}><i >Right</i></li>
+        <li style={{float:"right"}}><i ></i></li>
       </ul>
     )
   }
