@@ -1,0 +1,26 @@
+.App {
+  height: 93vh;
+  background-color: rgb(37, 37, 71);
+  
+}
+
+.contaner {
+  background-color: rgb(37, 37, 71);
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+}
+
+
+.text {
+  color: white;
+  margin: 0;
+  padding: 8px;
+}
+
+.landing {
+  text-align: center;
+  color: white;
+  font-size:3em;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
